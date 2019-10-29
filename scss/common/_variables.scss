@@ -1,22 +1,22 @@
 @function color($colorName: "primary") {
   $color: (
-    primary: hsl(42, 96%, 54%),
-    primary-light: hsl(42, 96%, 64%),
     primary-lighter: hsl(42, 96%, 74%),
+    primary-light: hsl(42, 96%, 64%),
+    primary: hsl(42, 96%, 54%),
     primary-dark: hsl(42, 96%, 44%),
     primary-darker: hsl(42, 96%, 34%),
-    secondary: hsl(356, 95%, 46%),
-    secondary-light: hsl(356, 95%, 56%),
     secondary-lighter: hsl(356, 95%, 66%),
+    secondary-light: hsl(356, 95%, 56%),
+    secondary: hsl(356, 95%, 46%),
     secondary-dark: hsl(356, 95%, 36%),
     secondary-darker: hsl(356, 95%, 26%),
-    gray: hsl(42, 20%, 30%),
-    gray-light: hsl(42, 20%, 40%),
     gray-lighter: hsl(42, 15%, 50%),
+    gray-light: hsl(42, 20%, 40%),
+    gray: hsl(42, 20%, 30%),
     gray-dark: hsl(42, 30%, 20%),
     gray-darker: hsl(42, 100%, 10%),
-    white: hsl(42, 90%, 90%),
     white-light: hsl(42, 100%, 95%),
+    white: hsl(42, 90%, 90%),
     white-dark: hsl(42, 80%, 85%)
   );
 
@@ -35,16 +35,11 @@
   @return map-get($font-weight, $weightName);
 }
 
-@function font-size($sizeName: "regular") {
+@function font-size($sizeName: "text") {
   $font-size: (
-    title-larger: 30px,
-    title-large: 26px,
-    title: 24px,
-    larger: 18px,
-    large: 16px,
-    regular: 14px,
-    small: 12px,
-    smaller: 10px
+    title: 48px,
+    subtitle: 16px,
+    text: 12px
   );
 
   @return map-get($font-size, $sizeName);

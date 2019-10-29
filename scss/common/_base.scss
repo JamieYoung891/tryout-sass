@@ -1,0 +1,39 @@
+html,
+body {
+  min-height: 100vh;
+  font-size: font-size(text);
+  font-family: "나눔스퀘어라운드";
+  line-height: 1;
+  color: color(gray);
+}
+
+body {
+  margin: 0;
+}
+
+html,
+body,
+header,
+main,
+section,
+div,
+ul,
+li,
+span,
+h1,
+button {
+  position: relative;
+  box-sizing: border-box;
+}
+
+ul {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+  list-style-type: none;
+}
+
+h1 {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}

@@ -1,0 +1,128 @@
+@import "./common/variables";
+@import "./common/mixins";
+@import "./common/base";
+
+body > div.background {
+  position: absolute;
+  z-index: -1;
+
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right bottom,
+    color(primary),
+    color(secondary)
+  );
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 100%);
+
+  @include landscape {
+    clip-path: polygon(0 0, 75% 0, 50% 100%, 0 100%);
+  }
+}
+
+body > header {
+  @include container;
+
+  font-weight: font-weight(bolder);
+  color: color(secondary-dark);
+  text-transform: uppercase;
+}
+
+body > main {
+  @include container;
+
+  @include landscape {
+    display: grid;
+    grid-template-columns: min-content min-content;
+    grid-template-areas: "tryout-now introduction";
+    gap: 1em;
+
+    align-items: center;
+    justify-content: space-evenly;
+  }
+}
+
+body > main > section {
+  width: min-content;
+  margin: 0 auto 2rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+body > main > section.introduction {
+  @include roundBox(color(primary-lighter));
+
+  font-weight: font-weight(lighter);
+  line-height: line-height(regular);
+  color: color(gray-darker);
+
+  @include landscape{
+    grid-area: introduction;
+  }
+
+  & > ul > li {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    grid-template-areas: "icon message";
+    gap: 1em;
+    align-items: center;
+
+    margin-bottom: 1.2em;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  & > ul > li > div.icon {
+    grid-area: icon;
+  }
+
+  & > ul > li > div.message {
+    grid-area: message;
+  }
+}
+
+body > main > section.tryout-now {
+  text-align: center;
+
+  @include landscape {
+    grid-area: tryout-now;
+    text-align: left;
+  }
+
+  & > * {
+    width: min-content;
+    margin: 0 auto 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  & > h1.title {
+    text-transform: uppercase;
+    font-size: font-size(title);
+    font-weight: font-weight(bolder);
+    color: color(white-light);
+  }
+
+  & > p.description {
+    line-height: line-height(regular);
+    color: color(white);
+  }
+
+  & > div.button {
+    @include roundBox(color(white-dark));
+    @include button(color(white-light), color(secondary));
+
+    width: max-content;
+    margin: 0 auto;
+
+    font-size: font-size(subtitle);
+    font-weight: font-weight(bolder);
+    color: color(secondary-dark);
+  }
+}

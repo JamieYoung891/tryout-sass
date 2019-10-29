@@ -1,0 +1,34 @@
+@mixin container {
+  padding: 1rem;
+}
+
+@mixin roundBox($_color) {
+  padding: 1em 1.8em;
+  border-radius: 0.8em;
+  background-color: $_color;
+  box-shadow: 0 5px 5px 5px rgba($color: #000000, $alpha: 0.1);
+}
+
+@mixin button($_background-color, $_color) {
+  cursor: pointer;
+  transition-duration: 0.5s;
+  transition-property: transform backgroud-color color;
+
+  &:hover {
+    transform: translateY(-0.2em);
+    background-color: $_background-color;
+    color: $_color;
+  }
+}
+
+@mixin landscape($_min-width: 0) {
+  @media (orientation: landscape) and (min-width: $_min-width) {
+    @content;
+  }
+}
+
+@mixin minWidth($_min-width) {
+  @media (min-width: $_min-width) {
+    @content;
+  }
+}
