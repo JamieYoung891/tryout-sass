@@ -1,4 +1,53 @@
-@function color($colorName: "primary") {
+@function viewportWidth($_viewportName) {
+  $viewportWidth: (
+    mobile-large: 410px,
+    tablet: 768px,
+    laptop: 1024px,
+    desktop: 1440px
+  );
+
+  @return map-get($viewportWidth, $_viewportName);
+}
+
+@function font-size($sizeName: root) {
+  $font-size: (
+    title: 4rem,
+    subtitle: 1.5rem,
+    root: 12px,
+    root-mobile_large: 14px,
+    root-tablet: 20px,
+    root-laptop: 28px,
+    root-desktop: 32px
+  );
+
+  @return map-get($font-size, $sizeName);
+}
+
+@function font-weight($_weightName: "regular") {
+  $font-weight: (
+    bolder: 800,
+    bold: 600,
+    regular: 400,
+    light: 300,
+    lighter: 200
+  );
+
+  @return map-get($font-weight, $_weightName);
+}
+
+@function line-height($lineHeight: "regular") {
+  $line-height: (
+    larger: 2,
+    large: 1.75,
+    regular: 1.5,
+    small: 1.3,
+    smaller: 1.1
+  );
+
+  @return map-get($line-height, $lineHeight);
+}
+
+@function color($_colorName: "primary") {
   $color: (
     primary-lighter: hsl(42, 96%, 74%),
     primary-light: hsl(42, 96%, 64%),
@@ -20,39 +69,5 @@
     white-dark: hsl(42, 80%, 85%)
   );
 
-  @return map-get($color, $colorName);
-}
-
-@function font-weight($weightName: "regular") {
-  $font-weight: (
-    bolder: 800,
-    bold: 600,
-    regular: 400,
-    light: 300,
-    lighter: 200
-  );
-
-  @return map-get($font-weight, $weightName);
-}
-
-@function font-size($sizeName: "text") {
-  $font-size: (
-    title: 48px,
-    subtitle: 16px,
-    text: 12px
-  );
-
-  @return map-get($font-size, $sizeName);
-}
-
-@function line-height($lineHeight: "regular") {
-  $line-height: (
-    larger: 2,
-    large: 1.75,
-    regular: 1.5,
-    small: 1.3,
-    smaller: 1.1
-  );
-
-  @return map-get($line-height, $lineHeight);
+  @return map-get($color, $_colorName);
 }

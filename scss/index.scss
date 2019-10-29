@@ -2,6 +2,37 @@
 @import "./common/mixins";
 @import "./common/base";
 
+html {
+  background-color: color(white-light);
+  font-size: font-size();
+  font-family: "나눔스퀘어라운드";
+  line-height: 1;
+  color: color(gray);
+
+  @include viewport(viewportWidth(mobile-large)) {
+    font-size: font-size(root-mobile_large);
+  }
+  @include viewport(viewportWidth(tablet)) {
+    font-size: font-size(root-tablet);
+  }
+  @include viewport(viewportWidth(laptop)) {
+    font-size: font-size(root-laptop);
+  }
+  @include viewport(viewportWidth(desktop)) {
+    font-size: font-size(root-desktop);
+  }
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  z-index: -1;
+}
+
+
 body > div.background {
   position: absolute;
   z-index: -1;
@@ -16,13 +47,14 @@ body > div.background {
   clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 100%);
 
   @include landscape {
-    clip-path: polygon(0 0, 75% 0, 50% 100%, 0 100%);
+    clip-path: polygon(0 0, 85% 0, 65% 100%, 0 100%);
   }
 }
 
 body > header {
   @include container;
 
+  // position: absolute;
   font-weight: font-weight(bolder);
   color: color(secondary-dark);
   text-transform: uppercase;
@@ -31,20 +63,24 @@ body > header {
 body > main {
   @include container;
 
+  display: grid;
+  grid-template-rows: min-content min-content;
+  align-content: space-evenly;
+  justify-content: space-evenly;
+  align-items: center;
+  justify-items: center;
+
+  height: calc(100vh - 3rem);
+
   @include landscape {
-    display: grid;
+    grid-template-rows: auto;
     grid-template-columns: min-content min-content;
     grid-template-areas: "tryout-now introduction";
-    gap: 1em;
-
-    align-items: center;
-    justify-content: space-evenly;
   }
 }
 
 body > main > section {
   width: min-content;
-  margin: 0 auto 2rem;
 
   &:last-of-type {
     margin-bottom: 0;
@@ -58,7 +94,7 @@ body > main > section.introduction {
   line-height: line-height(regular);
   color: color(gray-darker);
 
-  @include landscape{
+  @include landscape {
     grid-area: introduction;
   }
 
@@ -95,7 +131,7 @@ body > main > section.tryout-now {
 
   & > * {
     width: min-content;
-    margin: 0 auto 1rem;
+    margin: 0 auto 1.5rem;
 
     &:last-child {
       margin-bottom: 0;

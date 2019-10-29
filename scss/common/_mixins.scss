@@ -3,7 +3,7 @@
 }
 
 @mixin roundBox($_color) {
-  padding: 1em 1.8em;
+  padding: 1em 1.5em;
   border-radius: 0.8em;
   background-color: $_color;
   box-shadow: 0 5px 5px 5px rgba($color: #000000, $alpha: 0.1);
@@ -21,14 +21,15 @@
   }
 }
 
-@mixin landscape($_min-width: 0) {
-  @media (orientation: landscape) and (min-width: $_min-width) {
+@mixin landscape {
+  @media (orientation: landscape) {
     @content;
   }
 }
 
-@mixin minWidth($_min-width) {
-  @media (min-width: $_min-width) {
+@mixin viewport($_min-width) {
+  @media (orientation: portrait) and (min-width: $_min-width),
+    (orientation: landscape) and (min-height: $_min-width) {
     @content;
   }
 }
